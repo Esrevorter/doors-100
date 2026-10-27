@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DSV Erebus — Submersible Status Board</title><link href="https://fonts.googleapis.com/css2?family=Space Mono&display=swap" rel="stylesheet">
+<style>body{font-family:'Space Mono',monospace;background:#03080c;color:#7fd1ae}
+.board{max-width:820px;margin:auto;padding:8vh 22px}
+h1{color:#e0f4ff;letter-spacing:.2em;font-size:1.3rem}
+.depth{font-size:clamp(2.4rem,8vw,4rem);color:#4cc9f0;font-variant-numeric:tabular-nums;margin:20px 0}
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:30px 0}
+.g{border:1px solid #1c3a2e;padding:16px;background:#06131a}
+.g small{color:#5a8a7a;letter-spacing:.2em;font-size:.7rem}
+.g b{display:block;font-size:1.4rem;margin-top:6px}
+.ok{color:#7fd1ae}.warn{color:#f4a261}.bad{color:#e76f51}
+.sonar{width:min(92vw,300px);height:min(92vw,300px);border-radius:50%;border:1px solid #1c3a2e;margin:30px auto;position:relative;background:radial-gradient(#0a1f26,#03080c)}
+.sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(#4cc9f033,transparent 25%);animation:sw 3s linear infinite}
+@keyframes sw{to{transform:rotate(360deg)}}
+.blip{position:absolute;width:8px;height:8px;background:#f4a261;border-radius:50%;box-shadow:0 0 12px #f4a261}
+.log{font-size:.8rem;line-height:2;opacity:.8}</style></head><body><div class="board"><h1>DSV EREBUS · STATUS BOARD</h1>
+<div class="depth" id="dep">-4,212 m</div><small style="color:#5a8a7a">descending · hull nominal · coffee operational</small>
+<div class="gauges"><div class="g"><small>O₂ MIX</small><b class="ok">20.9%</b></div><div class="g"><small>HULL PRESSURE</small><b class="warn">42.3 MPa</b></div>
+<div class="g"><small>BATTERY</small><b class="ok">78%</b></div><div class="g"><small>EXT. TEMP</small><b class="ok">1.8°C</b></div>
+<div class="g"><small>BALLAST</small><b class="ok">-2.1%</b></div><div class="g"><small>SCARE LEVEL</small><b class="bad">elevated</b></div></div>
+<div class="sonar"><div class="sweep"></div><div class="blip" style="left:30%;top:44%"></div><div class="blip" style="left:62%;top:28%"></div><div class="blip" style="left:55%;top:70%"></div></div>
+<div class="log">22:41 hydrophone: rhythmic knocking, unidentified, politeness assumed<br>22:44 lights caught something vast and then it wasn't<br>22:47 crew vote: continue, obviously</div></div><script>let d=4212;setInterval(()=>{d-=Math.floor(Math.random()*9);document.getElementById('dep').textContent='-'+d.toLocaleString()+' m'},800);</script></body></html>

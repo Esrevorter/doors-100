@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orbit Tracker — Live Satellite Sketch</title><link href="https://fonts.googleapis.com/css2?family=Space Mono&display=swap" rel="stylesheet">
+<style>body{font-family:'Space Mono',monospace;background:#04070d;color:#9fd3ff}
+.hd{padding:22px 24px;border-bottom:1px solid #123}
+h1{font-size:1.1rem;letter-spacing:.2em}
+canvas{display:block;margin:0 auto;border:1px solid #123;max-width:100%}
+.feed{max-width:760px;margin:20px auto;padding:0 24px;font-size:.85rem;line-height:2}
+.sat{color:#9fd3ff}.ok{color:#3fb950}.warn{color:#d29922}</style></head><body><div class="hd"><h1>◉ ORBIT TRACKER · ground station 04</h1><small style="opacity:.6">simulated pass predictions, refreshed with vibes</small></div>
+<canvas id="c" width="760" height="380"></canvas>
+<div class="feed"><div><span class="sat">ISS (ZARYA)</span> — overhead window 21:47 · magnitude -3.1 <span class="ok">[VISIBLE]</span></div>
+<div><span class="sat">STARLINK-8842</span> — train forming over Nevada <span class="ok">[PRETTY]</span></div>
+<div><span class="sat">TIANGONG</span> — passive tumbling <span class="warn">[ATTITUDE]</span></div>
+<div><span class="sat">NOAA-19</span> — APT downlink on 137 MHz, sounds like a fax machine confessing</div></div><script>const c=document.getElementById('c'),x=c.getContext('2d');let t=0;
+const sats=[{r:120,s:.011,col:'#9fd3ff'},{r:150,s:-.007,col:'#3fb950'},{r:80,s:.019,col:'#d29922'},{r:170,s:.004,col:'#f778ba'}];
+(function l(){x.fillStyle='#04070d';x.fillRect(0,0,760,380);
+x.strokeStyle='#123';for(let r=40;r<=180;r+=35){x.beginPath();x.arc(380,190,r,0,7);x.stroke()}
+x.fillStyle='#1c3a5f';x.beginPath();x.arc(380,190,26,0,7);x.fill();
+x.fillStyle='#9fd3ff';x.font='10px Space Mono';x.fillText('EARTH (allegedly)',348,230);
+for(const s of sats){t;const a=t*s.s*60;const px=380+Math.cos(a)*s.r,py=190+Math.sin(a)*s.r*.55;
+x.strokeStyle=s.col+'44';x.beginPath();x.ellipse(380,190,s.r,s.r*.55,0,0,7);x.stroke();
+x.fillStyle=s.col;x.fillRect(px-3,py-3,6,6);x.shadowColor=s.col;x.shadowBlur=10;x.fillRect(px-3,py-3,6,6);x.shadowBlur=0}
+t+=1;requestAnimationFrame(l)})();</script></body></html>

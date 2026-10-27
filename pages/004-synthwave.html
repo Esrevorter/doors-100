@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEON DRIVE — Midnight Synthwave Radio</title><link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+<style>body{font-family:'Monoton';background:#10002b;color:#fff;text-align:center}
+.sun{width:300px;height:300px;border-radius:50%;margin:8vh auto 0;background:linear-gradient(#ff2975,#8c1eff);position:relative;overflow:hidden;box-shadow:0 0 120px #ff297588}
+.sun::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 12px,#10002b 12px 20px)}
+.grid{height:45vh;margin-top:6vh;background:linear-gradient(#0ff3 1px,transparent 1px),linear-gradient(90deg,#0ff3 1px,transparent 1px);background-size:44px 44px;transform:perspective(400px) rotateX(62deg);animation:mv 1.6s linear infinite}
+@keyframes mv{to{background-position:0 44px,0 0}}
+h1{font-size:clamp(2rem,7vw,5rem);color:#ff2975;text-shadow:0 0 30px #ff2975;margin-top:8vh}
+.track{font-family:monospace;font-size:1.4rem;color:#0ff;margin:3vh;letter-spacing:.3em;text-transform:uppercase}
+.eq{display:flex;gap:6px;justify-content:center;align-items:flex-end;height:60px}
+.eq div{width:10px;background:linear-gradient(#0ff,#ff2975);animation:b .5s ease-in-out infinite alternate}
+@keyframes b{from{height:8px}to{height:60px}}</style></head><body><h1>NEON DRIVE</h1><div class="sun"></div><div class="grid"></div>
+<div class="track">▶ NOW PLAYING — MIDNIGHT VELOCITY / THE LASER KINGS</div>
+<div class="eq" id="eq"></div><script>const eq=document.getElementById('eq');for(let i=0;i<24;i++){const b=document.createElement('div');b.style.animationDelay=(i*0.07)+'s';b.style.animationDuration=(0.3+Math.random()*0.5)+'s';eq.appendChild(b)}</script></body></html>

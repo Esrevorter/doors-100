@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GLITCHCORE // Broken On Purpose</title><link href="https://fonts.googleapis.com/css2?family=Rubik Mono One&display=swap" rel="stylesheet">
+<style>body{font-family:'Rubik Mono One';background:#0a0a0a;color:#fff;overflow-x:hidden}
+.hero{min-height:100vh;display:grid;place-items:center;position:relative}
+.g{font-size:clamp(2.5rem,9vw,6rem);position:relative;color:#fff}
+.g::before,.g::after{content:attr(data-t);position:absolute;left:0;top:0;width:100%}
+.g::before{color:#ff003c;animation:s1 2.4s infinite steps(2)}
+.g::after{color:#00fff9;animation:s2 3.1s infinite steps(2)}
+@keyframes s1{0%,100%{clip-path:inset(0 0 85% 0);transform:translate(-5px)}33%{clip-path:inset(40% 0 30% 0);transform:translate(5px)}66%{clip-path:inset(80% 0 0 0);transform:translate(-3px)}}
+@keyframes s2{0%,100%{clip-path:inset(70% 0 10% 0);transform:translate(4px)}40%{clip-path:inset(10% 0 60% 0);transform:translate(-6px)}70%{clip-path:inset(50% 0 20% 0);transform:translate(2px)}}
+.scan{position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(#ffffff05 0 1px,transparent 1px 3px)}
+.blocks{position:fixed;inset:0;pointer-events:none}
+.blk{position:absolute;background:#ff003c;mix-blend-mode:screen;opacity:.7}
+p.copy{font-family:monospace;font-weight:100;max-width:640px;margin:20vh auto;padding:0 24px;line-height:2;color:#9f9f9f}</style></head><body><div class="scan"></div><div class="blocks" id="B"></div>
+<div class="hero"><h1 class="g" data-t="ERROR 404">ERROR 404</h1></div>
+<p class="copy">Perfection is a rendering bug. This page crashes beautifully on purpose. Static screams, colour bleeds, pixels defect from their posts — and somehow it loads fine on your machine and nowhere else.</p><script>const B=document.getElementById('B');
+setInterval(()=>{B.innerHTML='';for(let i=0;i<5;i++){const d=document.createElement('div');d.className='blk';d.style.cssText=`left:${Math.random()*100}vw;top:${Math.random()*100}vh;width:${20+Math.random()*180}px;height:${2+Math.random()*10}px;background:${['#ff003c','#00fff9','#fff'][i%3]}`;B.appendChild(d)}},900);</script></body></html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HoloDeck Beta — Wireframe Projection</title><link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<style>body{font-family:'Orbitron';background:#000;color:#0ff;text-align:center;overflow:hidden}
+.stage{perspective:800px;margin:6vh auto;width:min(92vw,420px)}
+.holo{width:100%;aspect-ratio:1;position:relative;transform-style:preserve-3d;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotateY(360deg) rotateX(12deg)}}
+.face{position:absolute;inset:0;border:1px solid #0ff6;background:linear-gradient(#0ff08,transparent 60%),repeating-linear-gradient(#0ff2 0 1px,transparent 1px 24px),repeating-linear-gradient(90deg,#0ff2 0 1px,transparent 1px 24px);transform-style:preserve-3d}
+.f2{transform:rotateY(90deg) translateZ(210px)}.f1{transform:translateZ(210px)}
+.f3{transform:rotateY(180deg) translateZ(210px)}.f4{transform:rotateY(270deg) translateZ(210px)}
+.base{width:120%;height:30px;margin:-15px auto 0;border-radius:50%;background:radial-gradient(#0ff6,transparent 70%);box-shadow:0 0 60px #0ff4}
+h1{letter-spacing:.5em;font-size:1.2rem;margin-top:30px}
+.glitchy{animation:jig 4s infinite}
+@keyframes jig{0%,100%{filter:none}92%{filter:hue-rotate(90deg) brightness(1.6)}94%{filter:none}}
+.status{opacity:.6;font-size:.75rem;margin-top:14px;letter-spacing:.3em}</style></head><body><h1 class="glitchy">H O L O D E C K</h1><div class="status">beta build · projection stable-ish</div>
+<div class="stage"><div class="holo"><div class="face f1"></div><div class="face f2"></div><div class="face f3"></div><div class="face f4"></div></div><div class="base"></div></div>
+<p style="max-width:480px;margin:30px auto;opacity:.75;font-size:.85rem;line-height:2">PROJECTED ARTIFACT: “Cube (Study in Confidence)” — a wireframe so certain of itself it rotates without being asked.</p><script></script></body></html>

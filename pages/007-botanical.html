@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Herbarium Nocturne — Plants That Never Sleep</title><link href="https://fonts.googleapis.com/css2?family=Cormorant Garamond&display=swap" rel="stylesheet">
+<style>body{font-family:'Cormorant Garamond',serif;background:#0d1b12;color:#e9f2e4}
+.hero{min-height:100vh;display:grid;place-items:center;position:relative;background:radial-gradient(ellipse at 50% 120%,#1d3a26,#0d1b12)}
+h1{font-size:clamp(3rem,10vw,7rem);font-weight:300;font-style:italic;text-align:center}
+h1 em{color:#a8e6cf;font-style:normal}
+.leaves{position:absolute;inset:0;overflow:hidden}
+.leaf{position:absolute;font-size:2.5rem;animation:fall linear infinite;opacity:.5}
+@keyframes fall{from{transform:translateY(-10vh) rotate(0)}to{transform:translateY(110vh) rotate(360deg)}}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;padding:10vh 8vw}
+.plant{border:1px solid #a8e6cf33;padding:30px;border-radius:2px;background:#ffffff05;transition:.4s}
+.plant:hover{border-color:#a8e6cf;box-shadow:0 0 40px #a8e6cf22;transform:translateY(-6px)}
+.plant h3{font-size:1.8rem;color:#a8e6cf}.latin{font-style:italic;opacity:.6}</style></head><body><div class="hero"><div class="leaves" id="L"></div><h1>Herbarium<br><em>Nocturne</em></h1></div>
+<div class="row">
+<div class="plant"><h3>Moonflower</h3><p class="latin">Ipomoea alba</p><p>Unfurls only after dusk, chasing the moon with white satin trumpets. Farmers once read time by its opening.</p></div>
+<div class="plant"><h3>Queen of the Night</h3><p class="latin">Epiphyllum oxypetalum</p><p>Blooms once a year, for a single night, then vanishes before dawn. Gardens throw parties around its schedule.</p></div>
+<div class="plant"><h3>Dame's Rocket</h3><p class="latin">Hesperis matronalis</p><p>Releases its scent at twilight when day-pollinators sleep. A letter written to moths.</p></div>
+</div><script>const L=document.getElementById('L');
+for(let i=0;i<18;i++){const d=document.createElement('div');d.className='leaf';d.textContent=['🍃','🌿','🍂'][i%3];d.style.left=Math.random()*100+'vw';d.style.animationDuration=(7+Math.random()*10)+'s';d.style.animationDelay=-Math.random()*15+'s';L.appendChild(d)}</script></body></html>

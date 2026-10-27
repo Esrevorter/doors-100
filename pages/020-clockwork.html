@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Horologist — Clocks, Gears & Patience</title><link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+<style>body{font-family:'Cinzel',serif;background:#141008;color:#e8d5a3;text-align:center;padding-bottom:14vh}
+.gear{display:inline-block;font-size:5rem;animation:rot 8s linear infinite;color:#b8860b}
+.gear.rev{animation-direction:reverse}
+@keyframes rot{to{transform:rotate(360deg)}}
+h1{font-size:clamp(2rem,6vw,3.6rem);letter-spacing:.2em;margin:20px}
+.face{width:220px;height:220px;border:6px solid #b8860b;border-radius:50%;margin:40px auto;position:relative;background:#1c1508}
+.hand{position:absolute;left:50%;bottom:50%;transform-origin:bottom;background:#e8d5a3;border-radius:4px}
+.dot{position:absolute;width:12px;height:12px;background:#b8860b;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.shop{max-width:640px;margin:auto;text-align:left;padding:0 24px;line-height:2}
+.shop h2{text-align:center;color:#b8860b;letter-spacing:.3em;margin:60px 0 20px}</style></head><body><div style="margin-top:8vh"><span class="gear">⚙</span><span class="gear rev" style="font-size:3.4rem">⚙</span><span class="gear" style="font-size:4.2rem">⚙</span></div>
+<h1>THE HOROLOGIST</h1><p style="letter-spacing:.4em;font-size:.8rem">TIME, TAILORED</p>
+<div class="face"><div class="hand" id="hh" style="width:6px;height:55px"></div><div class="hand" id="mh" style="width:4px;height:80px"></div><div class="hand" id="sh" style="width:2px;height:95px;background:#c0392b"></div><div class="dot"></div></div>
+<div class="shop"><h2>— SERVICES —</h2>
+<b>Grandfather Therapy.</b> Your 1890s clock hums tunelessly? We sing it back to pitch.<br>
+<b>Mainspring Rebirth.</b> Coiled steel deserves second chances. Same for Tuesdays.<br>
+<b>Escapement Tuning.</b> The tiny heartbeat between tick and tock, adjusted to your resting pulse.</div><script>function tick(){const d=new Date(),s=d.getSeconds()+d.getMilliseconds()/1000,m=d.getMinutes()+s/60,h=(d.getHours()%12)+m/60;
+sh.style.transform=`rotate(${s*6}deg)`;mh.style.transform=`rotate(${m*6}deg)`;hh.style.transform=`rotate(${h*30}deg)`;requestAnimationFrame(tick)}
+const sh=document.getElementById('sh'),mh=document.getElementById('mh'),hh=document.getElementById('hh');tick();</script></body></html>

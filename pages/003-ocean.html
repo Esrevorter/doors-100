@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abyssal — Descent Into the Deep Ocean</title><link href="https://fonts.googleapis.com/css2?family=Playfair Display&display=swap" rel="stylesheet">
+<style>body{font-family:'Playfair Display';color:#dff6ff;background:linear-gradient(#0a3d62,#051329 60%,#01060d)}
+.wrap{max-width:760px;margin:auto;padding:12vh 24px}
+h1{font-size:clamp(3rem,9vw,6rem);font-style:italic;text-shadow:0 0 40px #0ff5}
+.zone{border-left:2px solid #2bb0d6;padding:24px 28px;margin:48px 0;position:relative;background:#ffffff06;border-radius:0 16px 16px 0}
+.zone::before{content:attr(data-d);position:absolute;left:-70px;top:28px;color:#2bb0d6;font-size:.8rem;letter-spacing:.1em}
+.bubble{position:fixed;bottom:-30px;border-radius:50%;background:#ffffff18;animation:up linear infinite}
+@keyframes up{to{transform:translateY(-110vh)}}
+.creature{text-align:center;font-size:4rem;filter:drop-shadow(0 0 18px #0ff)}</style></head><body><div class="wrap">
+<h1>The Abyssal Zone</h1><p style="opacity:.7;font-style:italic">Six hundred metres down, sunlight is a rumour.</p>
+<div class="zone" data-d="200m"><h2>Twilight</h2><p>Bioluminescence replaces the sun. Ninety percent of creatures here make their own light — cold blue lanterns drifting in permanent dusk.</p></div>
+<div class="zone" data-d="1000m"><h2>Midnight</h2><div class="creature">🦑</div><p>Giant squid patrol these waters. Eyes the size of dinner plates, evolved to catch the faintest glow of prey.</p></div>
+<div class="zone" data-d="4000m"><h2>Abyss</h2><div class="creature">🐡</div><p>Pressure here would crush a submarine like foil. Yet life persists — ghostly pale, patient, unhurried.</p></div>
+<div class="zone" data-d="11000m"><h2>Hadal</h2><div class="creature">🦴</div><p>Named for Hades. In the Mariana Trench, amphipods swim through darkness older than human civilisation.</p></div></div><script>for(let i=0;i<25;i++){const b=document.createElement('div');b.className='bubble';const s=4+Math.random()*20;b.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}vw;animation-duration:${6+Math.random()*10}s;animation-delay:${Math.random()*8}s`;document.body.appendChild(b)}</script></body></html>

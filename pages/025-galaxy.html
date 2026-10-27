@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spin Cycle — An Interactive Galaxy</title><link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+<style>body{font-family:'Michroma';background:#000;color:#cfd8ff;overflow:hidden}
+canvas{display:block;cursor:grab}
+.ui{position:fixed;top:20px;left:24px;z-index:2}
+h1{font-size:1.2rem;letter-spacing:.4em}.hint{opacity:.5;font-size:.7rem;margin-top:8px}
+.stat{position:fixed;bottom:20px;right:24px;text-align:right;font-size:.7rem;opacity:.6;z-index:2;font-family:monospace}</style></head><body><div class="ui"><h1>SPIN CYCLE</h1><div class="hint">drag to rotate · scroll to zoom · stars obey gravity</div></div>
+<canvas id="c"></canvas><div class="stat" id="st"></div><script>const c=document.getElementById('c'),x=c.getContext('2d');let W,H;
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight}rs();onresize=rs;
+const S=[...Array(1400)].map(()=>{const r=Math.random()**.5*420,a=Math.random()*7,cw=Math.random()*7|0;
+return{r,a,cw,tilt:(cw-.5)*.5,size:Math.random()*1.6+.3,hue:[210,260,330,45][cw]}});
+let rot=0,drag=null,zoom=1;
+c.onmousedown=e=>drag={x:e.clientX,r:rot};onmouseup=()=>drag=null;
+onmousemove=e=>{if(drag)rot=drag.r+(e.clientX-drag.x)*.005};
+onwheel=e=>zoom=Math.max(.4,Math.min(2.4,zoom-e.deltaY*.001));
+(function l(){x.fillStyle='#000';x.fillRect(0,0,W,H);rot+=.0016;
+for(const s of S){const a=s.a+rot*(1+s.cw*.12),z=Math.sin(a)*s.tilt;
+const px=Math.cos(a)*s.r*zoom,py=Math.sin(a)*s.r*zoom*.38*(1+z*.4);
+x.globalAlpha=.4+.6*Math.abs(Math.cos(a));x.fillStyle=`hsl(${s.hue},80%,${60+z*25}%)`;
+x.beginPath();x.arc(W/2+px,H/2+py,s.size,0,7);x.fill()}
+x.globalAlpha=1;x.fillStyle='#fff8dc';x.shadowColor='#ffd56b';x.shadowBlur=40;x.beginPath();x.arc(W/2,H/2,7,0,7);x.fill();x.shadowBlur=0;
+st.textContent=`ROT ${rot.toFixed(2)}rad · ZOOM ${zoom.toFixed(2)} · STARS 1400`;requestAnimationFrame(l)})();</script></body></html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Quilt Archive — Patchwork Histories</title><link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+<style>body{font-family:'Kalam',cursive;background:#efe9dc;color:#3a3226;text-align:center}
+.box{max-width:760px;margin:auto;padding:9vh 22px}
+h1{font-size:2.2rem}
+.quilt{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:40px auto;max-width:600px}
+.patch{aspect-ratio:1;border-radius:6px;display:grid;place-items:center;font-size:1.6rem;cursor:pointer;transition:.3s;box-shadow:0 4px 10px #0001}
+.patch:hover{transform:scale(1.15) rotate(4deg);z-index:2}
+.story{max-width:520px;margin:20px auto;font-size:1.15rem;min-height:3.4em;line-height:1.7}
+.legend{font-size:.85rem;opacity:.6}</style></head><body><div class="box"><h1>The Quilt Archive</h1><p style="opacity:.7">every square was a person, a place, or a stubborn idea · tap to hear the stitching</p>
+<div class="quilt" id="q"></div><div class="story" id="s">pick a patch…</div>
+<p class="legend">machine-pieced 1974 · hand-bound by aunties · washed exactly once, carefully</p></div><script>const P=[['#c94f4f','🌊','Grandmother Ada sailed this square across the Atlantic in her coat lining. Salt stains remain; she insisted they were seasoning.'],
+['#e8a13c','🐝','The bee block commemorates the summer the orchard finally produced. Six jars, zero complaints, one stung eyebrow.'],
+['#5a8a5a','🌙','Midnight fabric from a curtain Ada hated. "Good enough for quilts," she said, about curtains.'],
+['#4f7fc9','🚂','Printed cotton from the railway hotel where the quilt pattern was first sketched on a napkin.'],
+['#9a5ac9','🧵','The purple came from dye experimentation. The sofa never recovered. Worth it.'],
+['#c9c94f','🌻','Sunflower square stitched by the children, ages 6–11, contributions legally binding.']];
+const q=document.getElementById('q');
+for(let i=0;i<24;i++){const [c,e,t]=P[i%6];const d=document.createElement('div');d.className='patch';
+d.style.background=c+(i%3===0?'':i%3===1?'ee':'dd');d.textContent=e;
+d.onclick=()=>document.getElementById('s').textContent=t;q.appendChild(d)}</script></body></html>

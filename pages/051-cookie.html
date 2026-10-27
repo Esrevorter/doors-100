@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>One Small Cookie — A Confession</title><link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+<style>body{font-family:'Nunito';background:#fff8ee;color:#5b4636;display:grid;place-items:center;min-height:100vh;text-align:center;padding:24px}
+.jar{font-size:7rem;cursor:pointer;transition:.2s;display:inline-block}
+.jar:active{transform:scale(.9)}
+.count{font-size:3rem;font-weight:800;color:#c07c30}
+p{max-width:460px;line-height:1.8}
+.crumb{position:fixed;font-size:1.4rem;pointer-events:none;animation:pop .9s forwards}
+@keyframes pop{to{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0}}
+.shop{margin-top:18px;background:#c07c30;color:#fff;border:0;padding:12px 26px;border-radius:99px;font-family:inherit;font-size:1rem;cursor:pointer}</style></head><body><div><div class="jar" id="j">🍪</div><h1>You clicked the cookie.</h1><p>That's fine. They're right there. In fact, take another. Nobody's counting except the algorithm below:</p>
+<div class="count" id="n">0 cookies</div>
+<button class="shop" id="s">Buy more cookies (€0.00)</button>
+<p style="font-size:.8rem;opacity:.6;margin-top:16px">This page stores your crimes in localStorage. It always has. It always will.</p></div><script>let n=+localStorage.getItem('cookies')||0;const el=document.getElementById('n'),j=document.getElementById('j');
+function upd(){el.textContent=n+' cookie'+(n===1?'':'s');localStorage.setItem('cookies',n)}upd();
+j.onclick=e=>{n++;upd();for(let i=0;i<4;i++){const c=document.createElement('div');c.className='crumb';c.textContent='🍪';
+c.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;--dx:${Math.random()*160-80}px;--dy:${Math.random()*-120-30}px;--r:${Math.random()*360}deg`;
+document.body.appendChild(c);setTimeout(()=>c.remove(),900)}};
+document.getElementById('s').onclick=()=>{n+=12;upd();alert('Your self-control has been restocked.')};</script></body></html>

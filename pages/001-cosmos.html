@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cosmos — A Journey Through Space</title><link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<style>body{background:#000;color:#fff;font-family:'Orbitron'}
+.stars{position:fixed;inset:0;z-index:-1}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+h1{font-size:clamp(2rem,8vw,6rem);letter-spacing:.4em;background:linear-gradient(90deg,#7b2ff7,#f107a3,#fa709a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.planet{width:220px;height:220px;border-radius:50%;margin-top:40px;background:radial-gradient(circle at 30% 30%,#ffd56b,#ff6b35 45%,#7a1f00);box-shadow:0 0 80px #ff6b35aa;animation:spin 20s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+section{padding:14vh 8vw;font-size:1.1rem;line-height:2}
+.pulse{display:inline-block;width:14px;height:14px;border-radius:50%;background:#0ff;box-shadow:0 0 20px #0ff;animation:p 1.2s infinite}
+@keyframes p{50%{transform:scale(1.8);opacity:.4}}</style></head><body><canvas class="stars" id="c"></canvas>
+<div class="hero"><h1>COSMOS</h1><p>light-years from ordinary</p><div class="planet"></div></div>
+<section><span class="pulse"></span>&nbsp; The observable universe spans 93 billion light-years. Every atom in your left hand likely came from a different dying star than the ones in your right.</section>
+<section><span class="pulse"></span>&nbsp; Neutron stars spin up to 716 times per second. A sugar-cube of their matter weighs as much as Mount Everest.</section><script>const c=document.getElementById('c'),x=c.getContext('2d');let w,h,s=[];
+function rs(){w=c.width=innerWidth;h=c.height=innerHeight;s=[...Array(400)].map(()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4,z:Math.random()}))}
+rs();onresize=rs;
+(function loop(){x.fillStyle='#000';x.fillRect(0,0,w,h);for(const st of s){st.y+=st.z*.4;if(st.y>h)st.y=0;x.globalAlpha=.3+st.z;x.fillStyle='#fff';x.beginPath();x.arc(st.x,st.y,st.r,0,7);x.fill()}requestAnimationFrame(loop)})();</script></body></html>

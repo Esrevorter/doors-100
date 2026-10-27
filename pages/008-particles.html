@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Particle Poetry — Type Anything</title><link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+<style>body{font-family:'Inter';background:#0e0e11;color:#fff;display:grid;place-items:center;min-height:100vh}
+canvas{position:fixed;inset:0}
+.ui{position:fixed;bottom:8vh;width:min(90vw,520px);text-align:center;z-index:2}
+input{width:100%;background:#ffffff10;border:1px solid #ffffff30;color:#fff;font-size:2rem;text-align:center;padding:14px;border-radius:99px;outline:none;font-family:inherit}
+input:focus{border-color:#7c5cff;box-shadow:0 0 30px #7c5cff40}
+.hint{margin-top:12px;opacity:.5;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase}</style></head><body><canvas id="c"></canvas><div class="ui"><input id="inp" value="HELLO" maxlength="12" spellcheck="false"><div class="hint">the particles obey your words</div></div><script>const c=document.getElementById('c'),ctx=c.getContext('2d');
+let W,H,P=[],mouse={x:-999,y:-999};
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight}resize();onresize=()=>{resize();draw()}
+addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY});
+const inp=document.getElementById('inp');
+function draw(){const off=document.createElement('canvas');off.width=W;off.height=H;const o=off.getContext('2d');
+o.fillStyle='#fff';o.font=`900 ${Math.min(W/ (inp.value.length*0.75), H*0.4)}px Inter,sans-serif`;o.textAlign='center';o.textBaseline='middle';o.fillText(inp.value||' ',W/2,H/2-60);
+const d=o.getImageData(0,0,W,H).data;P=[];
+for(let y=0;y<H;y+=4)for(let x=0;x<W;x+=4){if(d[(y*W+x)*4+3]>128)P.push({x,y,ox:x,oy:y,vx:0,vy:0})}}
+draw();inp.addEventListener('input',draw);
+(function loop(){ctx.fillStyle='rgba(14,14,17,.25)';ctx.fillRect(0,0,W,H);
+for(const p of P){const dx=p.x-mouse.x,dy=p.y-mouse.y,d2=dx*dx+dy*dy;
+if(d2<9000){const d=Math.sqrt(d2)||1;p.vx+=dx/d*4;p.vy+=dy/d*4}else{p.vx+=(p.ox-p.x)*.08;p.vy+=(p.oy-p.y)*.08}
+p.vx*=.86;p.vy*=.86;p.x+=p.vx;p.y+=p.vy;
+const sp=Math.hypot(p.vx,p.vy);ctx.fillStyle=`hsl(${260+sp*8},90%,${60+sp}%)`;ctx.fillRect(p.x,p.y,2,2)}
+requestAnimationFrame(loop)})();</script></body></html>

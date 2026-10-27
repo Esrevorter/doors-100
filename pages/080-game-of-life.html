@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cellular Automata — Conway's Garden</title><link href="https://fonts.googleapis.com/css2?family=Ubuntu Mono&display=swap" rel="stylesheet">
+<style>body{font-family:'Ubuntu Mono',monospace;background:#05070a;color:#8be25a;text-align:center}
+.hd{padding:6vh 4vw 2vh}h1{font-size:1.6rem}
+canvas{border:1px solid #1c2a1c;cursor:crosshair;image-rendering:pixelated;max-width:94vw}
+.row{display:flex;gap:12px;justify-content:center;margin:16px;flex-wrap:wrap}
+button{background:#0b120b;color:#8be25a;border:1px solid #2c4a2c;padding:8px 18px;font-family:inherit;cursor:pointer}
+button:hover{background:#142214}
+.stat{font-size:.85rem;opacity:.7}</style></head><body><div class="hd"><h1>CONWAY'S GAME OF LIFE</h1><p class="stat">rules: 3 neighbours → born · 2–3 → survive · else die. draw cells while paused.</p></div>
+<div class="row"><button id="play">▶ run</button><button id="rnd">🎲 randomize</button><button id="gld">🪐 glider gun</button><button id="clr">✕ clear</button></div>
+<canvas id="c" width="640" height="400"></canvas>
+<p class="stat" id="gen">generation 0 · population 0</p><script>const c=document.getElementById('c'),x=c.getContext('2d'),S=10,W=64,h=40;
+let g=Array.from({length:h},()=>Array(W).fill(0)),run=false,n=0;
+function draw(){x.fillStyle='#05070a';x.fillRect(0,0,640,400);x.fillStyle='#8be25a';let p=0;
+for(let y=0;y<h;y++)for(let xx=0;xx<W;xx++)if(g[y][xx]){x.fillRect(xx*S+1,y*S+1,S-2,S-2);p++}
+gen.textContent=`generation ${n} · population ${p}`}
+function step(){const ng=Array.from({length:h},()=>Array(W).fill(0));
+for(let y=0;y<h;y++)for(let xx=0;xx<W;xx++){let a=0;
+for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(dx||dy)a+=g[(y+dy+h)%h][(xx+dx+W)%W]}
+ng[y][xx]=a===3||a===2&&g[y][xx]?1:0}g=ng;n++}
+function loop(){if(run){step();draw()}requestAnimationFrame(loop)}loop();
+play.onclick=()=>{run=!run;play.textContent=run?'⏸ pause':'▶ run'};
+rnd.onclick=()=>{for(let y=0;y<h;y++)for(let xx=0;xx<W;xx++)g[y][xx]=Math.random()<.28?1:0;draw()};
+clr.onclick=()=>{g=g.map(r=>r.fill(0));n=0;draw()};
+gld.onclick=()=>{g=g.map(r=>r.fill(0));const cells=[[1,5],[1,6],[1,7],[2,5],[2,6],[2,7],[3,4],[3,8],[4,4],[4,8],[5,3],[5,9],[6,2],[6,10],[7,2],[7,10],[8,2],[8,10],[9,3],[9,9],[10,4],[10,8],[11,5],[11,6],[11,7],[12,5],[12,6],[12,7],[13,4],[13,8],[14,4],[14,8],[15,3],[15,9],[16,2],[16,10],[17,2],[17,10],[18,2],[18,10],[19,3],[19,9],[20,4],[20,8],[21,5],[21,6],[21,7],[22,5],[22,6],[22,7]];
+cells.forEach(([yy,xx])=>g[yy][xx]=1);n=0;draw()};
+let dr=false;c.onmousedown=e=>{dr=true;paint(e)};onmouseup=()=>dr=false;
+c.onmousemove=e=>{if(dr)paint(e)};
+function paint(e){const r=c.getBoundingClientRect();const px=((e.clientX-r.left)/r.width*W)|0,py=((e.clientY-r.top)/r.height*h)|0;
+if(g[py])g[py][px]^=1;draw()}draw();</script></body></html>

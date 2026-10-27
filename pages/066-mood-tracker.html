@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weather Report: Internal — Mood Tracker</title><link href="https://fonts.googleapis.com/css2?family=Baloo 2&display=swap" rel="stylesheet">
+<style>body{font-family:'Baloo 2';background:#f4f1ff;color:#33304a;padding:8vh 6vw;text-align:center}
+h1{font-size:2.2rem}
+.sub{opacity:.6;margin-bottom:34px}
+.moods{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.m{width:92px;height:92px;border-radius:24px;font-size:2.6rem;display:grid;place-items:center;cursor:pointer;transition:.25s;background:#fff;box-shadow:0 8px 24px #4c3f8a1a}
+.m:hover{transform:translateY(-8px) scale(1.06)}
+.m.sel{outline:4px solid #7c5cff;transform:scale(1.12)}
+.log{max-width:520px;margin:40px auto;background:#fff;border-radius:18px;padding:24px;box-shadow:0 10px 30px #4c3f8a14;text-align:left}
+.day{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #ddd;font-size:.95rem}
+.note{font-size:.9rem;opacity:.7;margin-top:10px;min-height:1.2em}</style></head><body><h1>Weather Report: Internal</h1><p class="sub">how's the climate in there? tap one, add a note if brave</p>
+<div class="moods"><div class="m" data-l="sunny">☀️</div><div class="m" data-l="cloudy">⛅</div><div class="m" data-l="rainy">🌧️</div><div class="m" data-l="stormy">⛈️</div><div class="m" data-l="foggy">🌫️</div><div class="m" data-l="calm">🌙</div></div>
+<div class="note" id="note"></div>
+<div class="log"><b>this week's forecast log</b>
+<div class="day"><span>Mon</span><span>⛅ cloudy → cleared by 4pm</span></div>
+<div class="day"><span>Tue</span><span>⛈️ stormy · umbrella day</span></div>
+<div class="day"><span>Wed</span><span id="today">— awaiting report —</span></div></div><script>const notes={sunny:'highs near unstoppable, light breeze of humility',cloudy:'mostly brilliant with patches of meeting',rainy:'productive grey. things grow in this.',stormy:'proceed with caution and tea',foggy:'ideas present, visibility optional',calm:'clear skies within. low wind, high wisdom'};
+document.querySelectorAll('.m').forEach(m=>m.onclick=()=>{document.querySelectorAll('.m').forEach(x=>x.classList.remove('sel'));
+m.classList.add('sel');const l=m.dataset.l;document.getElementById('note').textContent=notes[l];
+document.getElementById('today').textContent=m.textContent+' '+l+' · logged'})</script></body></html>

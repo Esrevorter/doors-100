@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Floor 13 — Elevator Panel</title><link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+<style>body{font-family:'Rajdhani';background:#14161a;color:#e8e8e8;display:grid;place-items:center;min-height:100vh}
+.panel{background:linear-gradient(#2a2d33,#1c1f24);border:3px solid #3a3f46;border-radius:18px;padding:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:min(92vw,340px)}
+.floor-btn{aspect-ratio:1;border-radius:50%;border:2px solid #555;background:#22262c;color:#ccc;font-size:1.1rem;font-family:inherit;cursor:pointer;transition:.2s}
+.floor-btn:hover{border-color:#ffd166}
+.floor-btn.on{background:#ffd166;color:#111;border-color:#ffd166;box-shadow:0 0 24px #ffd16688}
+.display{grid-column:1/-1;background:#0a0a0a;color:#ff4d4d;font-family:monospace;font-size:2rem;text-align:center;padding:12px;border-radius:8px;letter-spacing:.3em}
+.door{grid-column:1/-1;height:14px;background:linear-gradient(90deg,#3a3f46 50%,#222 50%);border-radius:6px;animation:doors 3s infinite}
+@keyframes doors{0%,100%{background-size:200% 100%;background-position:0}50%{background-position:100%}}
+h1{margin-bottom:20px;letter-spacing:.4em;font-weight:500}</style></head><body><div><h1>ELEVATOR · TRUST US</h1><div class="panel"><div class="display" id="dsp">— —</div>
+<button class="floor-btn">1</button><button class="floor-btn">2</button><button class="floor-btn">3</button><button class="floor-btn">4</button>
+<button class="floor-btn">5</button><button class="floor-btn">6</button><button class="floor-btn">7</button><button class="floor-btn">8</button>
+<button class="floor-btn">9</button><button class="floor-btn">10</button><button class="floor-btn">11</button><button class="floor-btn">12</button>
+<button class="floor-btn" id="q13">13</button><button class="floor-btn">R</button><button class="floor-btn">P</button><button class="floor-btn">✳</button>
+<div class="door"></div></div><p style="text-align:center;opacity:.5;margin-top:16px;font-size:.85rem">capacity 8 persons · or one grand piano · physics TBD</p></div><script>const dsp=document.getElementById('dsp');
+document.querySelectorAll('.floor-btn').forEach(b=>b.onclick=()=>{document.querySelectorAll('.floor-btn').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+let f=b.textContent,i=0;const iv=setInterval(()=>{dsp.textContent=('0'+(1+Math.floor(Math.random()*12))).slice(-2);if(++i>7){clearInterval(iv);dsp.textContent=f.padStart(2,'0')}},220)});
+document.getElementById('q13').onclick=()=>{dsp.textContent='∞';setTimeout(()=>dsp.textContent='13',1200)};</script></body></html>

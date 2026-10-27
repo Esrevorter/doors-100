@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>root@nostalgia:~ — A Terminal That Remembers</title><link href="https://fonts.googleapis.com/css2?family=Share Tech Mono&display=swap" rel="stylesheet">
+<style>body{background:#05080a;color:#33ff66;font-family:'Share Tech Mono',monospace;padding:30px;font-size:15px;line-height:1.6;text-shadow:0 0 6px #33ff6640}
+.crt{position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,#0002 2px 4px);z-index:9}
+.flicker{animation:f 4s infinite}@keyframes f{97%{opacity:.85}}
+.prompt{color:#7fe7ff}.dim{opacity:.55}.warn{color:#ffb300}.pink{color:#ff5ce1}
+.cursor{background:#33ff66;color:#33ff66}
+.window{max-width:860px;margin:auto;border:1px solid #33ff6633;padding:24px;background:#06120aee}
+pre{white-space:pre-wrap}</style></head><body><div class="crt"></div><div class="window flicker">
+<pre><span class="prompt">visitor@nostalgia:~$</span> cat memories.txt
+<span class="dim">[loading cartridge... blowing on it out of habit... OK]</span>
+
+<span class="warn">▸ 1998</span>  Dial-up sang its modem aria. 56k of pure patience.
+<span class="warn">▸ 2001</span>  MSN Messenger pings. Green dot = someone worth waiting for.
+<span class="warn">▸ 2004</span>  Burning a mix CD took 12 minutes and 3 existential crises.
+<span class="warn">▸ 2007</span>  First smartphone. We ordered pizza and never looked up again.
+<span class="warn">▸ TODAY</span> <span id="typed" class="pink"></span><span class="cursor">█</span>
+
+<span class="prompt">visitor@nostalgia:~$</span> ls -la /heart
+total 1
+-rw-r--r-- 1 you you   ∞  keep it running
+<span class="prompt">visitor@nostalgia:~$</span> <span class="dim"># press any key to continue_</span></pre></div><script>const t="Still here. Still curious. Still pressing keys hoping something answers.";
+let i=0;const el=document.getElementById('typed');
+(function ty(){if(i<t.length){el.textContent+=t[i++];setTimeout(ty,55)}})();</script></body></html>

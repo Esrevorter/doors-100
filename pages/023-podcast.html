@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STATIC & CO. — The Audio Misadventure Podcast</title><link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+<style>body{font-family:'Sora';background:#0e0a1a;color:#efeaff}
+.top{background:linear-gradient(160deg,#5b2be8,#e8388f);padding:12vh 8vw 10vh;clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}
+h1{font-size:clamp(2.6rem,9vw,5.5rem);text-transform:lowercase}
+.ep{display:grid;grid-template-columns:70px 1fr auto;gap:20px;align-items:center;padding:26px 8vw;border-bottom:1px solid #ffffff14;transition:.25s;cursor:pointer}
+.ep:hover{background:#5b2be818;padding-left:calc(8vw + 12px)}
+.num{font-size:2rem;opacity:.35;font-weight:800}
+.play{width:46px;height:46px;border-radius:50%;background:#e8388f;display:grid;place-items:center;color:#fff;font-size:.9rem;transition:.2s}
+.ep:hover .play{transform:scale(1.15);box-shadow:0 0 24px #e8388f88}
+.dur{opacity:.5;font-family:monospace;font-size:.85rem}
+.wave{display:flex;gap:3px;align-items:flex-end;height:34px;margin-top:8px}
+.wave i{width:3px;background:#8f7bff;border-radius:2px}
+.host{padding:8vh 8vw;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.av{width:90px;height:90px;border-radius:50%;background:conic-gradient(#5b2be8,#e8388f,#5b2be8);display:grid;place-items:center;font-size:2rem}</style></head><body><div class="top"><h1>static & co.</h1><p style="max-width:480px">Two hosts, one microphone, zero scheduled topics. Weekly-ish audio misadventures since 2023.</p></div>
+<div class="ep"><div class="num">041</div><div><b>The Episode That Recorded Itself</b><div class="wave" data-n="26"></div></div><div><span class="dur">52:11</span> <div class="play">▶</div></div></div>
+<div class="ep"><div class="num">040</div><div><b>Interview: A Locksmith About Trust</b><div class="wave" data-n="34"></div></div><div><span class="dur">67:03</span> <div class="play">▶</div></div></div>
+<div class="ep"><div class="num">039</div><div><b>We Read Our Old Emails Aloud</b><div class="wave" data-n="20"></div></div><div><span class="dur">41:57</span> <div class="play">▶</div></div></div>
+<div class="host"><div class="av">🎙️</div><div><b>Mara Vance</b> — asks the questions she'll regret<br><small style="opacity:.6">producer, apologist</small></div>
+<div class="av">🎛️</div><div><b>Ilya Brandt</b> — owns too many cables<br><small style="opacity:.6">audio wizard, cable hoarder</small></div></div><script>document.querySelectorAll('.wave').forEach(w=>{for(let i=0;i<+w.dataset.n;i++){const b=document.createElement('i');b.style.height=(20+Math.random()*80)+'%';w.appendChild(b)}});</script></body></html>

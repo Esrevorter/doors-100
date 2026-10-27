@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Alchemist's Bar — Cocktails With Backstories</title><link href="https://fonts.googleapis.com/css2?family=Abril Fatface&display=swap" rel="stylesheet">
+<style>body{font-family:'Abril Fatface',serif;background:#160b1e;color:#f5e9d0}
+.bar{max-width:820px;margin:auto;padding:10vh 24px}
+h1{font-size:clamp(2.5rem,8vw,4.5rem);color:#e8b64c}
+.cock{display:grid;grid-template-columns:120px 1fr;gap:26px;margin:44px 0;padding-bottom:36px;border-bottom:1px solid #e8b64c33}
+.glass{width:110px;height:150px;position:relative}
+.liq{position:absolute;bottom:0;left:0;right:0;border-radius:0 0 40px 40px;transition:height 1.2s ease}
+.stem{position:absolute;bottom:-30px;left:50%;width:3px;height:34px;background:#f5e9d088;transform:translateX(-50%)}
+.base{position:absolute;bottom:-36px;left:50%;width:56px;height:5px;background:#f5e9d088;transform:translateX(-50%);border-radius:3px}
+h2{color:#e8b64c;font-size:1.7rem}.story{font-family:Georgia,serif;font-weight:400;line-height:1.8;opacity:.85}
+.rx{font-family:monospace;font-size:.8rem;color:#b58cff}</style></head><body><div class="bar"><h1>The Alchemist's Bar</h1>
+<div class="cock"><div class="glass"><div class="liq" style="background:linear-gradient(#ff7b54,#c0392b)" data-h="70%"></div><div class="stem"></div><div class="base"></div></div>
+<div><h2>Phoenix Old Fashioned</h2><p class="story">Bourbon, burnt orange, and a smoke ring pulled off a cedar plank. Served to anyone who needed a second act.</p><p class="rx">45ml rye · 15 ml demerara · 2 dashes regret (angostura)</p></div></div>
+<div class="cock"><div class="glass"><div class="liq" style="background:linear-gradient(#58d68d,#1e8449)" data-h="55%"></div><div class="stem"></div><div class="base"></div></div>
+<div><h2>Green Flash Absinthe</h2><p class="story">Vert d'eau poured over a sugar cube slowly collapsing. Hallucinations sold separately; imagination included.</p><p class="rx">30ml absinthe · ice water cascade · one open window</p></div></div>
+<div class="cock"><div class="glass"><div class="liq" style="background:linear-gradient(#a569bd,#4a235a)" data-h="85%"></div><div class="stem"></div><div class="base"></div></div>
+<div><h2>Midnight Negotiation</h2><p class="story">Gin, blackberry, violet, and a brine so sharp it ends arguments. House rule: drink two, decide nothing.</p><p class="rx">50ml gin · 20ml crème de mûre · 3 drops violet · sea</p></div></div></div><script>document.querySelectorAll('.liq').forEach(l=>{l.style.height='0';setTimeout(()=>l.style.height=l.dataset.h,300)});</script></body></html>

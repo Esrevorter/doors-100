@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Above the Treeline — Alpine Journal</title><link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+<style>body{font-family:'Prata',serif;background:#0e1621;color:#e8eef5}
+.j{max-width:720px;margin:auto;padding:10vh 24px}
+h1{font-size:clamp(2.4rem,8vw,4rem)}
+.entry{margin:50px 0;padding-left:26px;border-left:2px solid #3d5a80}
+.alt{color:#98c1d9;letter-spacing:.2em;font-size:.8rem;text-transform:uppercase}
+.entry h2{font-size:1.5rem;margin:6px 0}
+.entry p{line-height:1.85;opacity:.85}
+.peaks{display:flex;gap:0;align-items:flex-end;height:120px;margin-top:60px}
+.peaks i{flex:1;background:linear-gradient(#98c1d9,#3d5a80);transform-origin:bottom;transition:.8s;border-radius:2px 2px 0 0}</style></head><body><div class="j"><h1>Above the Treeline</h1><p style="opacity:.6;font-style:italic">field notes, week nine</p>
+<div class="entry"><div class="alt">Day 41 · 2,910m</div><h2>The marmots unionised</h2><p>Seven whistles before dawn, coordinated, smug. The glacier above them hasn't moved in forty years and neither, apparently, have their grievances.</p></div>
+<div class="entry"><div class="alt">Day 47 · 3,340m</div><h2>Weather turned silver</h2><p>Came up blue, went away white. Ate lunch facing the tent wall like a coward. The wind practised scales on the pitons all night — mostly minor keys.</p></div>
+<div class="entry"><div class="alt">Day 52 · 3,842m · SUMMIT</div><h2>Quiet, finally</h2><p>At the top, weather is underneath you. It does something to the brain. I stood eleven minutes, said nothing, meant everything.</p></div>
+<div class="peaks" id="pk"></div><p style="font-size:.75rem;opacity:.5;margin-top:10px">elevation profile · hover bars for altitudes</p></div><script>const pk=document.getElementById('pk');const alts=[2100,2450,2910,3120,3340,3550,3842,3400,3000,2600];
+alts.forEach((a,i)=>{const b=document.createElement('i');b.style.height=(a/3842*100)+'%';b.title=a+'m';
+b.onmouseenter=()=>b.style.filter='brightness(1.6)';b.onmouseleave=()=>b.style.filter='';pk.appendChild(b)});</script></body></html>

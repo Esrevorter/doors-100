@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Six for Dinner — Seating Chaos Planner</title><link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+<style>body{font-family:'Shrikhand';background:#ffeed6;color:#3d2b1f}
+.room{max-width:860px;margin:auto;padding:8vh 22px;text-align:center}
+.table{width:min(92vw,560px);height:280px;margin:50px auto;background:#e8b98a;border-radius:160px/120px;position:relative;box-shadow:inset 0 -14px 0 #c98d55,0 24px 50px #00000022}
+.guest{position:absolute;width:74px;height:74px;border-radius:50%;background:#fff;border:3px solid #3d2b1f;display:grid;place-items:center;font-size:.62rem;cursor:grab;transition:.2s;box-shadow:0 8px 18px #0002;text-align:center;line-height:1.2;padding:4px}
+.guest:hover{transform:scale(1.15) rotate(-4deg);background:#ffd93d}
+h1{font-size:clamp(2rem,7vw,3.4rem)}
+.shuffle{background:#3d2b1f;color:#ffeed6;border:0;padding:14px 34px;border-radius:99px;font-family:inherit;cursor:pointer;font-size:1rem}
+.shuffle:hover{background:#7a4e28}</style></head><body><div class="room"><h1>Six for Dinner</h1><p style="font-family:cursive;font-size:1.2rem">drag nobody, hover everyone, seat the feudals apart… good luck</p>
+<div class="table" id="t"></div><button class="shuffle" id="sh">⟳ reshuffle the disaster</button></div><script>const G=['Aunt Bea (loud)','Theo (ex)','Priya (new partner)','Dad (grill)','Sam (knows everything)','Mim (homemade wine)','You (host)','Cousin Lin'] ;
+const t=document.getElementById('t');
+function place(){t.querySelectorAll('.guest').forEach(e=>e.remove());
+G.forEach((n,i)=>{const a=i/G.length*Math.PI*2,r=1.0;const el=document.createElement('div');el.className='guest';el.textContent=n;
+const cx=50+Math.cos(a)*44,cy=50+Math.sin(a)*38;el.style.left=cx+'%';el.style.top=cy+'%';el.style.margin='-37px';
+el.onclick=()=>{el.style.background='#ff6b6b';setTimeout(()=>el.style.background='',500)};t.appendChild(el)})}
+place();document.getElementById('sh').onclick=place;</script></body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hexhome — The Board Game Cafe</title><link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+<style>body{font-family:'Fredoka';background:#2e1e14;color:#f6ead2}
+.parquet{background:repeating-conic-gradient(#3b2718 0 25%,#33220f 0 50%) 0 0/60px 60px;min-height:100vh;padding:8vh 6vw}
+h1{font-size:clamp(2.4rem,8vw,4.4rem);color:#f2b134;text-shadow:0 4px 0 #7a4a12}
+.meeple{font-size:3rem;display:inline-block;animation:hop 1.4s infinite}
+@keyframes hop{50%{transform:translateY(-14px) rotate(6deg)}}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:40px}
+.gcard{background:#fff8ea;color:#3b2718;border-radius:14px;padding:22px;transform:rotate(var(--r,0));transition:.25s;cursor:pointer;box-shadow:0 12px 30px #0006}
+.gcard:hover{transform:rotate(0) translateY(-8px) scale(1.03)}
+.gcard h3{font-size:1.3rem}.plex{display:flex;gap:6px;margin:10px 0;font-size:1.2rem}
+.diff{font-size:.8rem;background:#f2b134;border-radius:99px;padding:3px 12px;display:inline-block}</style></head><body><div class="parquet"><span class="meeple">🧑‍🎨</span><h1>HEXHOME CAFÉ</h1>
+<p style="font-size:1.2rem;max-width:560px">Board games, warm soup, and friendly rivalries. 400+ titles on the shelf, none of them Monopoly (house rules).</p>
+<div class="games">
+<div class="gcard" style="--r:-2deg"><h3>Catan</h3><div class="plex">👨‍👩‍👧‍👦 3–4</div><span class="diff">easy to teach</span><p>Trade sheep, betray friends, hug it out after.</p></div>
+<div class="gcard" style="--r:1.5deg"><h3>Wingspan</h3><div class="plex">🐦 1–5</div><span class="diff">medium thinky</span><p>Beautiful birds doing bird economics. Shockingly tense.</p></div>
+<div class="gcard" style="--r:-1deg"><h3>7 Wonders</h3><div class="plex">🏛 3–7</div><span class="diff">draft dynasty</span><p>Build civilisation in 30 minutes per age.</p></div>
+<div class="gcard" style="--r:2deg"><h3>Terraforming Mars</h3><div class="plex">🪐 1–5</div><span class="diff">long haul</span><p>Make Mars habitable. Bring snacks and a weekend.</p></div></div></div><script></script></body></html>

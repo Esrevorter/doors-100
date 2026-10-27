@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ONE HUNDRED — A Gallery of Galleries</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;800&display=swap" rel="stylesheet">
+<style>*{margin:0;box-sizing:border-box}body{font-family:'Bricolage Grotesque';background:#0a0a0c;color:#f2f0e9;padding:8vh 6vw}
+h1{font-size:clamp(3rem,10vw,7rem);font-weight:800;line-height:.95;background:linear-gradient(90deg,#ff2975,#7b2ff7,#0ff,#feca57);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+p{opacity:.6;margin-bottom:40px;font-size:1.1rem}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+a{text-decoration:none;color:inherit;background:#15151a;border:1px solid #ffffff14;padding:20px;border-radius:12px;display:block;transition:.25s}
+a:hover{transform:translateY(-4px);border-color:#ff2975;background:#1a1520}
+a b{display:block;font-size:1rem}a small{opacity:.5;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}</style></head>
+<body><h1>ONE<br>HUNDRED</h1><p>100 hand-built worlds · no two alike · pick a door</p><div class="g" id="g"></div>
+<script>const files=[
+["001-cosmos","Space"],["002-brutalist","Brutalism"],["003-ocean","Deep Sea"],["004-synthwave","Neon 80s"],["005-zen","Zen Garden"],
+["006-terminal","Retro CRT"],["007-botanical","Night Plants"],["008-particles","Type Physics"],["009-vintage-passport","Travel Ink"],["010-glassmorphism","Aurora Glass"],
+["011-timeline","Big History"],["012-menu","Code Cuisine"],["013-glitch","Glitchcore"],["014-cocktail","Alchemist Bar"],["015-isometric","Iso City"],
+["016-lofi","Rainy Beats"],["017-artdeco","Deco Hotel"],["018-dinosaur","Fossil FM"],["019-gradient","Colour Lab"],["020-clockwork","Horology"],
+["021-portfolio","Dev Portfolio"],["022-retro-game","8-Bit Quest"],["023-podcast","Static & Co."],["024-magazine","Meridian"],["025-galaxy","Spin Cycle"],
+["026-wedding","Amara & Theo"],["027-cyberpunk","2077 Directory"],["028-cheese","Cheesemonger"],["029-neon-typography","Loud Type"],["030-tea","Way of Tea"],
+["031-startup","Fernmark"],["032-museum","Invisible Art"],["033-weather-poster","Sky Poster"],["034-quote-machine","Wisdom RNG"],["035-skincare","Botanica"],
+["036-geocities","1999 Web"],["037-coffee","Coffee Notes"],["038-audio-wave","Draw Sound"],["039-film-poster","Film Noir"],["040-boardgame","Hexhome"],
+["041-minimal-photography","Light Leaks"],["042-space-shop","Orbit Store"],["043-poetry","Prose Poems"],["044-arcade-stats","High Scores"],["045-floral-invite","Garden Party"],
+["046-newsprint","Broadsheet"],["047-vaporwave","Mall Soft"],["048-resume","CV Iris"],["049-lanterns","Lantern Fest"],["050-dashboard","Mission Ctrl"],
+["051-cookie","Cookie Jar"],["052-mountain","Alpine Log"],["053-colorpicker","Palette Gen"],["054-map","Imaginary Atlas"],["055-fitness","Stride"],
+["056-mixtape","Mixtape"],["057-changelog","Human Patches"],["058-market","Sat Market"],["059-orbit-tracker","Sat Radar"],["060-patisserie","Maison Doré"],
+["061-tarot","Midnight Deck"],["062-bike-repair","Spoke&Wrench"],["063-firefly","Catch Glow"],["064-cheatsheet","Grid Cheat"],["065-vinyl-record","Crate Dig"],
+["066-mood-tracker","Internal Wx"],["067-jazzclub","Blue Note"],["068-emoji-orchestra","Emoji Orch"],["069-rust-belt","Factory Tape"],["070-star-chart","Star Names"],
+["071-dinner-party","Seat Chaos"],["072-darkmode-toggle","Lights Out"],["073-radio-theatre","Radio Drama"],["074-pixel-art-studio","Pixel Press"],["075-observatory","Dome 7"],
+["076-carnival","Shadow Fair"],["077-readinglist","Shelf Life"],["078-sound-of-city","City Audio"],["079-botanical-print","Fern Plate"],["080-game-of-life","Cells!"],
+["081-sourdough","Levain Log"],["082-neon-sign-maker","Sign Spin"],["083-field-museum","Small Things"],["084-nightbus","Bus 27"],["085-type-specimen","Grotesque"],
+["086-compost","Worm Weekly"],["087-time-capsule","Capsule 8"],["088-aurora","Chase Lights"],["089-board-manifesto","Small Table"],["090-hologram","HoloCube"],
+["091-seed-library","Seed Jars"],["092-elevator","Floor 13"],["093-birdsong","Dawn Chorus"],["094-micro-brand","Filament"],["095-deepsea-sub","Erebus"],
+["096-quilt","Quilt Archive"],["097-speed-dial","Rotary"],["098-recipe-fold","Sunday Ragù"],["099-constellation","Name Stars"],["100-thankyou","Finale"]];
+document.getElementById('g').innerHTML=files.map(([f,t])=>`<a href="${f}.html"><small>${f.slice(0,3)}</small><b>${t}</b></a>`).join('');</script></body></html>

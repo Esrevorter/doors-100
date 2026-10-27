@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign Spinner — Make Your Neon</title><link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<style>body{font-family:'Pacifico';background:#0b0b0b;color:#fff;text-align:center;padding:10vh 5vw}
+.sign{display:inline-block;border:6px solid #333;border-radius:18px;padding:40px 60px;background:#101010;margin:30px auto;box-shadow:0 0 40px #00000088,inset 0 0 30px #000}
+.txt{font-size:clamp(2rem,8vw,4.4rem);color:var(--nc,#0ff);text-shadow:0 0 8px var(--nc,#0ff),0 0 30px var(--nc,#0ff),0 0 60px var(--nc,#0ff);animation:flick 5s infinite;outline:none}
+@keyframes flick{0%,92%,94%,100%{opacity:1}93%{opacity:.4}96%{opacity:.75}}
+input[type=text]{background:#1a1a1a;border:1px solid #333;color:#fff;padding:12px 18px;font-family:'Pacifico';font-size:1.2rem;border-radius:8px;width:min(90vw,360px);text-align:center}
+.colors{display:flex;gap:14px;justify-content:center;margin-top:20px}
+.dot{width:30px;height:30px;border-radius:50%;cursor:pointer;border:2px solid #444;transition:.2s}
+.dot:hover{transform:scale(1.25)}
+label{font-family:sans-serif;font-size:.8rem;color:#888;letter-spacing:.2em;text-transform:uppercase}</style></head><body><h1 style="font-size:2.6rem">Sign Spinner</h1><label>type your sign</label><br><input id="inp" value="Open Late" maxlength="18"><br>
+<div class="sign"><div class="txt" id="t">Open Late</div></div><br><label>choose gas tube colour</label>
+<div class="colors"><div class="dot" style="background:#0ff" data-c="#0ff"></div><div class="dot" style="background:#f0f" data-c="#f0f"></div>
+<div class="dot" style="background:#ff0" data-c="#ff0"></div><div class="dot" style="background:#0f0" data-c="#0f0"></div><div class="dot" style="background:#f60" data-c="#f60"></div></div><script>const inp=document.getElementById('inp'),t=document.getElementById('t');
+inp.oninput=()=>t.textContent=inp.value||'…';
+document.querySelectorAll('.dot').forEach(d=>d.onclick=()=>t.style.setProperty('--nc',d.dataset.c));</script></body></html>

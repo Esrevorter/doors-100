@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Draw Your Constellation</title><link href="https://fonts.googleapis.com/css2?family=Syncopate&display=swap" rel="stylesheet">
+<style>body{font-family:'Syncopate';background:#020308;color:#cdd6f4;min-height:100vh;overflow:hidden;text-align:center}
+h1{padding-top:6vh;font-size:1.1rem;letter-spacing:.4em}
+p{opacity:.5;font-size:.75rem;margin-top:10px}
+canvas{display:block;cursor:crosshair}
+.name{position:fixed;bottom:6vh;width:100%;font-size:.9rem;letter-spacing:.3em;color:#ffd93d}</style></head><body><h1>NAME THE STARS BETWEEN YOU</h1><p>click stars to connect · double-click to clear</p>
+<canvas id="c"></canvas><div class="name" id="nm">your constellation awaits its myth</div><script>const c=document.getElementById('c'),x=c.getContext('2d');let W,H,stars=[],links=[],hover=null;
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight;stars=[...Array(14)].map(()=>({x:60+Math.random()*(W-120),y:100+Math.random()*(H-220),tw:Math.random()*6}))}rs();onresize=rs;
+addEventListener('mousemove',e=>{hover=null;let best=60;for(const s of stars){const d=Math.hypot(s.x-e.clientX,s.y-e.clientY);if(d<best){best=d;hover=s}}});
+c.addEventListener('click',()=>{if(hover){const last=links[links.length-1];if(last!==hover){if(links.length&&links[links.length-1]!==hover)links.push(hover);links.push(hover)}}});
+c.addEventListener('dblclick',()=>{links=[];document.getElementById('nm').textContent='fresh sky, fresh myth'});
+const myths=['The Late Lantern','Two Bears Arguing','Her Unsent Letter','The Ferry That Waited','Small Crown, Heavy Head','The Third Well'];
+(function l(){x.fillStyle='#020308';x.fillRect(0,0,W,H);
+x.strokeStyle='#ffd93d88';x.lineWidth=1.4;x.beginPath();links.forEach((s,i)=>i?x.lineTo(s.x,s.y):x.moveTo(s.x,s.y));if(links.length)x.stroke();
+for(const s of stars){const tw=.6+.4*Math.sin(Date.now()/700+s.tw);
+x.fillStyle=`rgba(220,230,255,${tw})`;x.beginPath();x.arc(s.x,s.y,s===hover?7:3,0,7);x.fill();
+if(s===hover){x.strokeStyle='#fff3';x.beginPath();x.arc(s.x,s.y,12,0,7);x.stroke()}}
+if(links.length>1&&!document.getElementById('nm').dataset.set){document.getElementById('nm').textContent='“'+myths[Math.random()*myths.length|0]+'” — recorded in the almanac';document.getElementById('nm').dataset.set=1}
+if(!links.length)delete document.getElementById('nm').dataset.set;
+requestAnimationFrame(l)})()</script></body></html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Quote Machine — Wisdom On Demand</title><link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+<style>body{font-family:'Bitter',serif;display:grid;place-items:center;min-height:100vh;background:#0f0f13}
+.qcard{width:min(92vw,640px);padding:60px 54px;border-radius:4px;position:relative;transition:background 1s;box-shadow:0 30px 80px #0008}
+.mark{font-size:5rem;line-height:0;position:relative;top:34px;opacity:.4}
+blockquote{font-size:clamp(1.3rem,3.5vw,1.9rem);line-height:1.6;margin:26px 0}
+cite{font-size:1rem;opacity:.75;font-style:normal;letter-spacing:.1em}
+button{margin-top:34px;background:transparent;border:2px solid currentColor;color:inherit;font-family:inherit;padding:12px 28px;font-size:.9rem;cursor:pointer;letter-spacing:.2em;text-transform:uppercase;transition:.3s}
+button:hover{transform:translateY(-3px)}</style></head><body><div class="qcard" id="card"><div class="mark">“</div><blockquote id="q"></blockquote><cite id="a"></cite><br><button id="b">New wisdom</button></div><script>const Q=[['The best way out is always through.','Robert Frost','#e74c3c'],['Simplicity is the ultimate sophistication.','Leonardo da Vinci','#16a085'],['We suffer more in imagination than in reality.','Seneca','#f39c12'],['Not all those who wander are lost.','J.R.R. Tolkien','#8e44ad'],['It is not the mountain we conquer, but ourselves.','Edmund Hillary','#2980b9'],['Talk is cheap. Show me the code.','Linus Torvalds','#27ae60'],['A ship in harbor is safe, but that is not what ships are built for.','John A. Shedd','#c0392b']];
+const card=document.getElementById('card'),q=document.getElementById('q'),a=document.getElementById('a');
+function nxt(){const [t,bg]=Q[Math.random()*Q.length|0];const c=bg||'#e74c3c';card.style.background=c;card.style.color=luma(c)>.5?'#111':'#fff';q.textContent='“'+pick()[0]+'”';a.textContent='— '+pick()[1]}
+function pick(){return Q[Math.random()*Q.length]}
+function luma(h){const n=parseInt(h.slice(1),16);return(((n>>16&255)*.299+(n>>8&255)*.587+(n&255)*.114)/255)}
+document.getElementById('b').onclick=()=>{const[t,w]=pick();q.textContent='“'+t+'”';a.textContent='— '+w;const c=pick()[2];card.style.background=c;card.style.color=luma(c)>.55?'#141414':'#fff'};
+q.textContent='“'+Q[0][0]+'”';a.textContent='— '+Q[0][1];card.style.background=Q[0][2];card.style.color='#fff';</script></body></html>

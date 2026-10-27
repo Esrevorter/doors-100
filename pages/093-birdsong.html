@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Morning Chorus — Identify by Ear</title><link href="https://fonts.googleapis.com/css2?family=Noto Serif&display=swap" rel="stylesheet">
+<style>body{font-family:'Noto Serif',serif;background:#eef3ea;color:#2b3a2b}
+.field-guide{max-width:760px;margin:auto;padding:9vh 24px}
+h1{font-size:clamp(2rem,6vw,3rem)}
+.bird{display:grid;grid-template-columns:70px 1fr auto;gap:22px;align-items:center;padding:22px 0;border-bottom:1px solid #2b3a2b22;cursor:pointer;transition:.25s}
+.bird:hover{padding-left:10px}
+.bird .glyph{font-size:2.6rem}
+.bird b{font-size:1.2rem}.bird small{display:block;opacity:.65;font-style:italic}
+.song{font-family:monospace;color:#5a7a5a;font-size:.9rem}
+.play{background:#5a7a5a;color:#fff;border:0;border-radius:99px;padding:8px 18px;font-size:.8rem;cursor:pointer}
+.play:hover{background:#3f5a3f}
+.dawn{background:linear-gradient(#f6e7b2,#eef3ea);border-radius:14px;padding:22px;margin:30px 0;font-style:italic}</style></head><body><div class="field-guide"><h1>Morning Chorus</h1><div class="dawn">Today's dawn chorus peaked at 05:42. Territory density: ambitious. One robin arguing with traffic again.</div>
+<div class="bird"><span class="glyph">🐦</span><div><b>European Robin</b><small>territorial tinkle, garden-sized ego</small></div><span><span class="song">tweet-chew-chew-TRILL</span><br><button class="play" data-f="2600">listen</button></span></div>
+<div class="bird"><span class="glyph">🕊️</span><div><b>Common Wood Pigeon</b><small>coo-ing like a foghorn with manners</small></div><span><span class="song">coo-HOO-hoo-hoo</span><br><button class="play" data-f="420">listen</button></span></div>
+<div class="bird"><span class="glyph">🪶</span><div><b>Eurasian Wren</b><small>tiny bird, absurdly loud opinion</small></div><span><span class="song">brrrr-BRRR-brrr</span><br><button class="play" data-f="4200">listen</button></span></div>
+<div class="bird"><span class="glyph">🦜</span><div><b>Blackbird</b><small>flute solo at dusk, takes requests, gives none</small></div><span><span class="song">lee-ooo AAA-ooo</span><br><button class="play" data-f="1100">listen</button></span></div></div><script>document.querySelectorAll('.play').forEach(b=>b.onclick=()=>{try{const ac=b._ac||(b._ac=new(window.AudioContext||window.webkitAudioContext)());
+const f=+b.dataset.f,o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;g.gain.value=.12;o.connect(g).connect(ac.destination);
+o.start();const t=ac.currentTime;for(let i=0;i<4;i++){o.frequency.setValueAtTime(f*(1+(i%2)*.12),t+i*.22);g.gain.setValueAtTime(.12,t+i*.22);g.gain.exponentialRampToValueAtTime(.001,t+i*.22+.2)}
+o.stop(t+1);b.textContent='♪ playing'}catch(e){}});</script></body></html>

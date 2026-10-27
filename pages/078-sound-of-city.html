@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Sound of Cities — Ambient Map</title><link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+<style>body{font-family:'Rubik';background:#0b0f14;color:#e8eef2}
+.hd{padding:9vh 8vw 4vh}h1{font-size:clamp(2rem,6vw,3.2rem)}
+.city{display:grid;place-items:center;padding:26px;margin:14px 8vw;border-radius:16px;cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.city:hover{transform:scale(1.015)}
+.city b{font-size:1.6rem;position:relative;z-index:2;text-align:center}
+.city small{position:relative;z-index:2;opacity:.85}
+.tokyo{background:linear-gradient(135deg,#bc00dd,#390099)}.rio{background:linear-gradient(135deg,#f77f00,#d62828)}
+.oslo{background:linear-gradient(135deg,#2193b0,#6dd5ed)}.lagos{background:linear-gradient(135deg,#ee9ca7,#bd0026)}
+.bars{display:flex;gap:4px;align-items:flex-end;height:34px;margin-top:12px;position:relative;z-index:2}
+.bars i{width:6px;background:#ffffffbb;animation:eq .7s infinite alternate ease-in-out;border-radius:2px}
+@keyframes eq{to{height:100%!important}}
+.now{margin:0 8vw 8vh;font-family:monospace;color:#7fd1ae}</style></head><body><div class="hd"><h1>The Sound of Cities</h1><p style="opacity:.7">tap a city to listen to its mix — headphones recommended, empathy required</p></div>
+<div class="city tokyo"><b>東京 · Tokyo Shibuya 07:40</b><small>crossing hum × train chimes × vending machine jingle</small><div class="bars" data-n="12"></div></div>
+<div class="city rio"><b>Rio · Copacabana 16:00</b><small>drums under surf under frisbee under argument</small><div class="bars" data-n="16"></div></div>
+<div class="city oslo"><b>Oslo · Grünerløkka 22:00</b><small>snow on tram wires, one bicycle, distant hygge</small><div class="bars" data-n="8"></div></div>
+<div class="city lagos"><b>Lagos · Balwa Market 12:00</b><small>danfo horns, generator choir, laughter at full volume</small><div class="bars" data-n="20"></div></div>
+<div class="now" id="now">▶ nothing playing — pick a city</div><script>document.querySelectorAll('.bars').forEach(b=>{for(let i=0;i<+b.dataset.n;i++){const x=document.createElement('i');x.style.height=(20+Math.random()*60)+'%';b.appendChild(x)}});
+const mixes={'tokyo':'🎧 train melody (official but soulful)… crossing white noise… a robot saying please mind the gap','rio':'🥁 surdo at 92bpm blended with waves, gulls negotiating ownership','oslo':'❄️ almost silence, then a single tram bell, extremely polite','lagos':'📢 horns in clusters, generator bassline, someone selling something brilliantly'};
+document.querySelectorAll('.city').forEach(c=>c.onclick=()=>{document.getElementById('now').textContent=c.querySelector('b').textContent.split('·')[0]+' — '+mixes[c.classList[1]]})</script></body></html>

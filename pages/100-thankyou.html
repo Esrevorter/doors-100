@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page 100 — The End Of The Beginning</title><link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+<style>body{font-family:'Caveat',cursive;background:radial-gradient(#1c2333,#0a0d16);color:#fff;display:grid;place-items:center;min-height:100vh;text-align:center;overflow:hidden}
+.thanks{position:relative;z-index:2;padding:24px}
+h1{font-size:clamp(3rem,10vw,6rem);line-height:1.1}
+h1 span{color:#ffd93d}
+p{font-size:1.6rem;opacity:.8;max-width:520px;margin:20px auto}
+.confetti{position:fixed;top:-20px;font-size:1.6rem;animation:drop linear forwards}
+@keyframes drop{to{transform:translateY(110vh) rotate(720deg);opacity:.1}}
+button{background:#ffd93d;color:#1c2333;border:0;font-family:inherit;font-size:1.4rem;padding:12px 36px;border-radius:99px;cursor:pointer;transition:.2s}
+button:hover{transform:scale(1.08) rotate(-2deg)}
+.pages{margin-top:26px;font-size:1rem;opacity:.5}</style></head><body><div class="thanks"><h1>You made it to <span>page 100.</span></h1>
+<p>One hundred worlds, one hundred fonts, zero templates reused. Somewhere in here a galaxy spins, a worm reports weekly, and a cookie counts your clicks.</p>
+<button id="pop">throw confetti 🎉</button>
+<div class="pages">pages 001–100 · built by hand, generated with love</div></div><script>document.getElementById('pop').onclick=()=>{for(let i=0;i<80;i++){const c=document.createElement('div');c.className='confetti';
+c.textContent=['🎉','✨','🎊','⭐','💛'][i%5];c.style.left=Math.random()*100+'vw';c.style.animationDuration=(2+Math.random()*3)+'s';
+document.body.appendChild(c);setTimeout(()=>c.remove(),5000)}};</script></body></html>

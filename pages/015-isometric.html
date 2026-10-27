@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IsoCity — A Tiny Isometric Metropolis</title><link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+<style>body{font-family:'Lexend';background:#1b1f3b;color:#eaf0ff;display:grid;place-items:center;min-height:100vh}
+.scene{perspective:1200px}
+.tile{width:min(88vw,560px);aspect-ratio:1;background:#232a52;transform:rotateX(56deg) rotateZ(45deg);position:relative;box-shadow:0 60px 120px #000a;transition:transform .6s}
+.tile:hover{transform:rotateX(56deg) rotateZ(45deg) scale(1.05)}
+.b{position:absolute;transform-style:preserve-3d}
+.roof,.side1,.side2{position:absolute}
+h1{position:fixed;top:24px;left:28px;font-size:1.4rem;letter-spacing:.2em}
+.legend{position:fixed;bottom:24px;right:28px;font-size:.8rem;opacity:.7;text-align:right}</style></head><body><h1>ISO CITY · pop. 1,024</h1>
+<div class="scene"><div class="tile" id="t"></div></div>
+<div class="legend">drag-free hover to zoom district<br>all buildings code-approved</div><script>const t=document.getElementById('t');const cols=['#ff6b6b','#feca57','#48dbfb','#1dd1a1','#5f27cd','#ff9ff3'];
+for(let i=0;i<30;i++){const h=20+Math.random()*70,x=Math.random()*82,y=Math.random()*82,c=cols[i%cols.length];
+const b=document.createElement('div');b.className='b';
+b.style.cssText=`left:${x}%;top:${y}%;width:34px;height:34px;transform:translateZ(${h}px)`;
+b.innerHTML=`<div style="position:absolute;inset:0;background:${c};box-shadow:0 0 12px ${c}66"></div>
+<div style="position:absolute;top:100%;left:0;width:34px;height:${h}px;background:${c}88;transform-origin:top;transform:rotateX(-90deg)"></div>
+<div style="position:absolute;top:0;left:100%;width:${h}px;height:34px;background:${c}55;transform-origin:left;transform:rotateY(90deg)"></div>`;
+t.appendChild(b)}</script></body></html>

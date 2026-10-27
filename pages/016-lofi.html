@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>lofi radio — beats to decompress to</title><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+<style>body{font-family:'Quicksand';background:linear-gradient(#2b2140,#4a3055);color:#ffe6f2;min-height:100vh;display:grid;place-items:center}
+.room{width:min(92vw,520px);background:#201936;border-radius:20px;padding:34px;box-shadow:0 30px 80px #0009;text-align:center}
+.vinyl{width:170px;height:170px;border-radius:50%;margin:0 auto 22px;background:repeating-radial-gradient(#111 0 3px,#222 3px 6px);position:relative;animation:sp 3s linear infinite;box-shadow:0 0 0 6px #0a0a0a}
+.vinyl.stop{animation-play-state:paused}
+.vinyl::after{content:'';position:absolute;inset:38%;border-radius:50%;background:#ff8fb1}
+@keyframes sp{to{transform:rotate(360deg)}}
+.trackname{font-size:1.3rem;margin-bottom:4px}
+.artist{opacity:.6;margin-bottom:20px}
+button{background:#ff8fb1;border:0;color:#201936;font-family:inherit;font-weight:700;padding:12px 30px;border-radius:99px;font-size:1rem;cursor:pointer;transition:.2s}
+button:hover{transform:scale(1.06)}
+.rain{position:fixed;inset:0;pointer-events:none}
+.drop{position:absolute;width:1px;height:14px;background:#ffffff33;animation:dr linear infinite}
+@keyframes dr{to{transform:translateY(110vh)}}
+.now{margin-top:18px;font-size:.8rem;letter-spacing:.2em;opacity:.7}</style></head><body><div class="rain" id="r"></div>
+<div class="room"><div class="vinyl" id="v"></div>
+<div class="trackname" id="tn">Rainy Window Tape №4</div><div class="artist">sleepy.kettle</div>
+<button id="btn">⏸ pause the rain</button>
+<div class="now">♫ 12,402 people decompressing right now</div></div><script>const r=document.getElementById('r');for(let i=0;i<60;i++){const d=document.createElement('div');d.className='drop';d.style.cssText=`left:${Math.random()*100}vw;top:${-Math.random()*100}vh;animation-duration:${.5+Math.random()*.7}s;animation-delay:${Math.random()*2}s`;r.appendChild(d)}
+const v=document.getElementById('btn');const tracks=[['Rainy Window Tape №4','sleepy.kettle'],['Kettle & Keyboard','mono.mochi'],['3AM Study Hall','dust bunny'],['Teapot Sonata','lo fi lord fred']];let i=0,on=true;
+v.onclick=()=>{on=!on;v.textContent=on?'⏸ pause the rain':'▶ resume the rain';document.getElementById('v').classList.toggle('stop',!on);if(on){i=(i+1)%tracks.length;document.getElementById('tn').textContent=tracks[i][0];document.querySelector('.artist').textContent=tracks[i][1]}};</script></body></html>
